@@ -1,2 +1,0 @@
-# GatsbyRepo
-GatsbySite
