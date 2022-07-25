@@ -67,19 +67,40 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: "gatsby-plugin-netlify-cms",
-      options: {
-        modulePath: `${__dirname}/src/cms/cms.js`,
-      },
-    },
+ 
     {
       resolve: "gatsby-plugin-purgecss", // purges all unused/unreferenced css rules
       options: {
         develop: true, // Activates purging in npm run develop
         purgeOnly: ["/all.sass"], // applies purging only on the bulma css file
       },
-    }, // must be after other CSS plugins
+    },
+    
+    {
+      resolve: 'gatsby-plugin-netlify-admin',
+      options: {
+          adminPath: `${__dirname}/static/admin`,
+          adminUri: 'admin',
+          loginUri: '/admin/login/',
+          excludeUri: ['/admin/signup'],
+      }
+  },
+
+    {
+      resolve: `gatsby-plugin-netlify-cms`,
+      options: {
+        /**
+         * One convention is to place your Netlify CMS customization code in a
+         * `src/cms` directory.
+         */
+        modulePath: `${__dirname}/src/cms/cms.js`,
+        enableIdentityWidget: true,
+        publicPath: `admin`,
+      },
+    },
+
+    // must be after other CSS plugins
     "gatsby-plugin-netlify", // make sure to keep it last in the array
   ],
 };
+

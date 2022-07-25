@@ -3,6 +3,8 @@ import * as React from "react";
 import Layout from "../../components/Layout";
 import BlogRoll from "../../components/BlogRoll";
 
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
 export default class BlogIndexPage extends React.Component {
   render() {
     return (
@@ -33,6 +35,10 @@ export default class BlogIndexPage extends React.Component {
           </div>
         </section>
       </Layout>
+
+
+
+
     );
   }
 }
